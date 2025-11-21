@@ -8,8 +8,8 @@ To write a python program for creating Chat using TCP Sockets Links.
  server
 4. Send and receive the message using the send function in socket.
 ## PROGRAM
-## client:
-~~~
+## CLIENT
+```
 import socket 
 s=socket.socket() 
 s.connect(('localhost',8000)) 
@@ -17,24 +17,23 @@ while True:
     msg=input("Client > ") 
     s.send(msg.encode()) 
     print("Server > ",s.recv(1024).decode())
-~~~
-## server:
-~~~
-import socket
-s = socket.socket()
-s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-s.bind(('localhost', 8000))
-s.listen(5)
-c, addr = s.accept()
-while True:
-    ClientMessage = c.recv(1024).decode()
-    print("Client > ", ClientMessage)
-    msg = input("Server > ")
-    c.send(msg.encode())
-~~~
+```
+## SERVER
+```
+import socket 
+s=socket.socket() 
+s.bind(('localhost',8000)) 
+s.listen(5) 
+c,addr=s.accept() 
+while True: 
+            ClientMessage=c.recv(1024).decode() 
+            print("Client > ",ClientMessage) 
+            msg=input("Server > ") 
+            c.send(msg.encode())
 
+```
 ## OUPUT
-<img width="1916" height="1140" alt="image" src="https://github.com/user-attachments/assets/a0263836-2414-4ae3-9e55-f23fa1e6a69a" />
+<img width="1653" height="1153" alt="image" src="https://github.com/user-attachments/assets/6da16093-ed05-4357-85d6-d4bdaeab5e18" />
 
 ## RESULT
 Thus, the python program for creating Chat using TCP Sockets Links was successfully 
